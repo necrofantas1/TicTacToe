@@ -1,18 +1,15 @@
 ﻿bool playAgain = true;
 
-
 while (playAgain)
 {
-
     char cell1 = '1', cell2 = '2', cell3 = '3',
-          cell4 = '4', cell5 = '5', cell6 = '6',
-          cell7 = '7', cell8 = '8', cell9 = '9';
+         cell4 = '4', cell5 = '5', cell6 = '6',
+         cell7 = '7', cell8 = '8', cell9 = '9';
 
     int player = 1;
     int gameStatus = 0;
 
-
-    // Головний цикл гри
+    // цикл гри
     do
     {
         char symbol = player == 1 ? 'X' : 'O';
@@ -43,9 +40,9 @@ while (playAgain)
                     case 8 when cell8 == '8': cell8 = symbol; continueGame = false; break;
                     case 9 when cell9 == '9': cell9 = symbol; continueGame = false; break;
 
-
                     default:
                         Console.WriteLine("Клітинка вже зайнята!");
+                        Console.WriteLine("Натисніть будь-яку клавішу для продовження...");
                         Console.ReadKey();
                         break;
                 }
@@ -53,8 +50,11 @@ while (playAgain)
             else
             {
                 Console.WriteLine("Неправильний вибір! Введіть число від 1 до 9.");
+                Console.WriteLine("Натисніть будь-яку клавішу для продовження...");   
                 Console.ReadKey();
+
             }
+
         } while (continueGame);
 
         // Перевірка переможця
@@ -99,20 +99,11 @@ while (playAgain)
     {
         Console.WriteLine("Нічия!");
     }
-    {
-        Console.WriteLine("Бажаєте зіграти ще раз? (y/n): ");
-        string response = Console.ReadLine()?.ToLower();
-        playAgain = response == "y" || response == "yes";
-    }
 
+    Console.WriteLine("Бажаєте зіграти ще раз? (y/n): ");
+    string response = Console.ReadLine()?.ToLower();
+    playAgain = response == "y";
 }
-    
-
-
-
-
-
-
 
 
 
